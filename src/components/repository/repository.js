@@ -17,8 +17,8 @@ class Repository extends Component{
         if(this.state.url === ''){
             this.setState({erro: 'O Repositório do git precisa ser informado!'})
         }else{
-            // let urlApi = 'https://repo-rpb.herokuapp.com/repo/git';
-            let urlApi = 'http://localhost:8080/repo/git';
+            let urlApi = 'https://repo-rpb.herokuapp.com/repo/git';
+
             let result = fetch(urlApi, {
                 method: 'PUT',
                 body: JSON.stringify({url: this.state.url}),
