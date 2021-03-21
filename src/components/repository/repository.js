@@ -18,7 +18,7 @@ class Repository extends Component{
             this.setState({erro: 'O Repositório do git precisa ser informado!'})
         }else{
             let urlApi = 'https://repo-rpb.herokuapp.com/repo/git';
-
+            
             let result = fetch(urlApi, {
                 method: 'PUT',
                 body: JSON.stringify({url: this.state.url}),
@@ -34,10 +34,11 @@ class Repository extends Component{
             })
             .then((json) => {
                 this.setState({arquivos: json, erro: ''})
-            }).catch(function(error) {
-                console.log('Erro ao recuperar arquivos', error);
-            });;
-
+            })
+            .catch(e => { 
+                this.setState({arquivos: [] ,erro: 'Não foi possível encontrar o repositório informado. Verifique se a URL está correta.'});
+                console.log(e);
+              });
         }
 
         event.preventDefault();
@@ -50,7 +51,7 @@ class Repository extends Component{
                 {this.state.erro && <p className='error'>{this.state.erro}</p>}
                 <form onSubmit={this.buscar} className='form'>
                     <label>Url Repositório do git: </label>
-                    <input type="url" name="url" value={this.state.url}
+                    <input type="url" name="url" value={this.state.url} placeholder='https://github.com/user/repository'
                         onChange={(e) => this.setState({url: e.target.value})} className='input'/>
                     <button  type="submit"> Pesquisar Arquivos</button>
                 </form>
