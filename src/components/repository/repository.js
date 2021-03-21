@@ -15,7 +15,7 @@ class Repository extends Component{
 
     buscar(event){
         if(this.state.url === ''){
-            this.setState({erro: 'O Repositório do git precisa ser informado!'})
+            this.setState({arquivos:[], erro: 'O Repositório do git precisa ser informado!'})
         }else{
             let urlApi = 'https://repo-rpb.herokuapp.com/repo/git';
             
@@ -50,10 +50,10 @@ class Repository extends Component{
             <div>
                 {this.state.erro && <p className='error'>{this.state.erro}</p>}
                 <form onSubmit={this.buscar} className='form'>
-                    <label>Url Repositório do git: </label>
+                    <label className='label'>Url Repositório do git: </label>
                     <input type="url" name="url" value={this.state.url} placeholder='https://github.com/user/repository'
                         onChange={(e) => this.setState({url: e.target.value})} className='input'/>
-                    <button  type="submit"> Pesquisar Arquivos</button>
+                    <button type="submit" className='button'> Pesquisar Arquivos</button>
                 </form>
                 
                 {

@@ -12,7 +12,10 @@
 }
 
 .input{
-    width: 50%;
+    width: 30%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid black;
 }
 
 .list{
@@ -28,4 +31,20 @@
 
 .titulo{
     text-align: center;
+}
+
+.button{
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    /* margin: 10px 0px; */
+    cursor: pointer;
+}
+
+.label{
+    font-size: 16px;
+    padding: 10px;
+    font-weight: bolder;
 }
