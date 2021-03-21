@@ -1,0 +1,27 @@
+.form{
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    justify-content: center;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.input{
+    width: 50%;
+}
+
+.list{
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    align-items: flex-start;
+    background-color: #DDD;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
