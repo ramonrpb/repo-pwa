@@ -55,7 +55,18 @@ class Repository extends Component{
                     <button  type="submit"> Pesquisar Arquivos</button>
                 </form>
                 
-                <ul>
+                {
+                    this.state.arquivos !== 'undefined' && this.state.arquivos.length > 0
+                    && this.state.arquivos.map((item, key) => {
+                        return(
+                            <article key={key} className='list'>
+                                <strong>Arquivo: {item.name}</strong><br/>
+                                <strong>{item.quantityLines} linhas</strong><br/>
+                                <strong>{item.size} bytes</strong>
+                            </article>
+                        );})
+                    
+                /* <ul>
                     {this.state.arquivos !== 'undefined' && this.state.arquivos.length > 0
                     && this.state.arquivos.map((item, key) => {
                         return(
@@ -65,7 +76,8 @@ class Repository extends Component{
 
                         );})
                     }
-                </ul>
+                </ul> */
+                }
             </div>
         );
     }
