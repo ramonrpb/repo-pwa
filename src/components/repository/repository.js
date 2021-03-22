@@ -56,29 +56,36 @@ class Repository extends Component{
                     <button type="submit" className='button'> Pesquisar Arquivos</button>
                 </form>
                 
-                {
-                    this.state.arquivos !== 'undefined' && this.state.arquivos.length > 0
-                    && this.state.arquivos.map((item, key) => {
-                        return(
-                            <article key={key} className='list'>
-                                <strong>Arquivo: {item.name}</strong><br/>
-                                <strong>{item.quantityLines} linhas</strong><br/>
-                                <strong>{item.size} bytes</strong>
-                            </article>
-                        );})
-                    
-                /* <ul>
-                    {this.state.arquivos !== 'undefined' && this.state.arquivos.length > 0
-                    && this.state.arquivos.map((item, key) => {
-                        return(
-                            <li key={key}>
-                                {item.name} | {item.quantityLines} linhas | {item.size} bytes
-                            </li>
+                <div style={{display: this.state.arquivos !== 'undefined' && this.state.arquivos.length > 0  ? 'block' : 'none' }}>
+                    <table className='customers'>
+                        <tr>
+                            <th>Arquivo</th>
+                            <th>Quantidade de Linhas</th>
+                            <th>Tamanho (bytes)</th>
+                        </tr>
+                        {
+                            this.state.arquivos !== 'undefined' && this.state.arquivos.length > 0
+                            && this.state.arquivos.map((item, key) => {
+                                return(
+                                    <tr key={key}>
+                                        <td>{item.name}</td>
+                                        <td>{item.quantityLines}</td>
+                                        <td>{item.size}</td>
+                                    </tr>
+                                );})
 
-                        );})
-                    }
-                </ul> */
-                }
+                            // this.state.arquivos !== 'undefined' && this.state.arquivos.length > 0
+                            // && this.state.arquivos.map((item, key) => {
+                            //     return(
+                            //         <article key={key} className='list'>
+                            //             <strong>Arquivo: {item.name}</strong><br/>
+                            //             <strong>{item.quantityLines} linhas</strong><br/>
+                            //             <strong>{item.size} bytes</strong>
+                            //         </article>
+                            //     );})
+                        }
+                    </table>
+                </div>
             </div>
         );
     }
