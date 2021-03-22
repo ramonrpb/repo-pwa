@@ -10,7 +10,7 @@ class App extends Component{
   render(){
     return (
       <div>
-          <h1 className='titulo'>Infrome o repositório para consulta!</h1>
+          <h1 className='titulo'>Informe o repositório para consulta!</h1>
           <hr/>
           <Repository />
       </div>
